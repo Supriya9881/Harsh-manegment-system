@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<!-- Login Base Layout -->
+	<definition name="base.login" template="PearlCleanLoginLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="body" value="" />
+	</definition>
+
+	<definition name="mainLoginPage" extends="base.login">
+		<put-attribute name="title" value="PearlClean Login" />
+		<put-attribute name="body" value="/WEB-INF/main/MainLogin.jsp" />
+	</definition>
+	
+	<definition name="forgatePasswordPage" extends="base.login">
+		<put-attribute name="title" value="Forgate Password" />
+		<put-attribute name="body" value="/WEB-INF/main/ForgatePassword.jsp" />
+	</definition>
+	
+	<definition name="RegisterPage" extends="base.login">
+		<put-attribute name="title" value="Register New" />
+		<put-attribute name="body" value="/WEB-INF/main/RegisterNew.jsp" />
+	</definition>
+	
+	<definition name="LockScreenPage" extends="base.login">
+		<put-attribute name="title" value="Lock Screen" />
+		<put-attribute name="body" value="/WEB-INF/main/LockScreen.jsp" />
+	</definition>
+
+<!-- //////////////////////////////////////////////////////////////////////////// -->
+<!-- mainHomePage -->
+<definition name="base.Layout" template="baselayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="body" value="" />
+</definition>
+
+	<!--  -->
+	<definition name="DashboardPage" extends="base.Layout">
+		<put-attribute name="title" value="Dashboard" />
+		<put-attribute name="body" value="/WEB-INF/main/Dashboard.jsp" />
+	</definition>
+	
+	
+	<!-- SearchCustomerPage -->
+	<definition name="SearchCustomerPage" extends="base.Layout">
+		<put-attribute name="title" value="Search Customer" />
+		<put-attribute name="body" value="/WEB-INF/jsp/customer/SearchCustomer.jsp" />
+	</definition>
+	
+	<!-- AddCustomerPage -->
+	<definition name="AddCustomerPage" extends="base.Layout">
+		<put-attribute name="title" value="Add Customer" />
+		<put-attribute name="body" value="/WEB-INF/jsp/customer/AddCustomer.jsp" />
+	</definition>
+	
+	<!-- CustomerDetailsPage -->
+	<definition name="CustomerDetailsPage" extends="base.Layout">
+		<put-attribute name="title" value="Customer Details" />
+		<put-attribute name="body" value="/WEB-INF/jsp/customer/CustomerDetails.jsp" />
+	</definition>
+	
+	<!-- Customer_NotReadyPage -->
+	<definition name="Customer_NotReadyPage" extends="base.Layout">
+		<put-attribute name="title" value="Not Ready" />
+		<put-attribute name="body" value="/WEB-INF/jsp/customer/CustomerNotReady.jsp" />
+	</definition>
+	
+	<!-- PrintBarcodePage -->
+	<definition name="PrintBarcodePage" extends="base.Layout">
+		<put-attribute name="title" value="Print Barcode" />
+		<put-attribute name="body" value="/WEB-INF/jsp/PrintBarcode.jsp" />
+	</definition>
+	
+	<!-- PrintOutsideBarcodePage -->
+	<definition name="PrintOutsideBarcodePage" extends="base.Layout">
+		<put-attribute name="title" value="Print Outside Barcode" />
+		<put-attribute name="body" value="/WEB-INF/jsp/PrintOutsideBarcode.jsp" />
+	</definition>
+	
+	<!-- Masters -->
+	<!-- ClothTypeMasterPage -->
+	<definition name="ClothTypeMasterPage" extends="base.Layout">
+		<put-attribute name="title" value="Cloth Type Master" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Admin/ClothTypeMaster.jsp" />
+	</definition>
+	
+	<!-- PreferencesMasterPage -->
+	<definition name="PreferencesMasterPage" extends="base.Layout">
+		<put-attribute name="title" value="Preferences Master" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Admin/PreferencesMaster.jsp" />
+	</definition>
+	
+	<!-- AddEmployeePage -->
+	<definition name="AddEmployeePage" extends="base.Layout">
+		<put-attribute name="title" value="Add Employee" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Admin/AddEmployee.jsp" />
+	</definition>
+	
+	<!-- Orders -->
+	<!-- GetOrderPage -->
+	<definition name="GetOrderPage" extends="base.Layout">
+		<put-attribute name="title" value="Get Order" />
+		<put-attribute name="body" value="/WEB-INF/jsp/customer/GetOrder.jsp" />
+	</definition>
+	
+	<!-- ReturnOrderPage -->
+	<definition name="ReturnOrderPage" extends="base.Layout">
+		<put-attribute name="title" value="Return Order" />
+		<put-attribute name="body" value="/WEB-INF/jsp/customer/ReturnOrderPage.jsp" />
+	</definition>
+	
+	<!-- Reports -->
+	<!-- AllOrderReportPage -->
+	<definition name="AllOrderReportPage" extends="base.Layout">
+		<put-attribute name="title" value="All Orders" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Reports/AllOrderReportPage.jsp" />
+	</definition>
+	
+	<!-- AllCustomersReportPage -->
+	<definition name="AllCustomersReportPage" extends="base.Layout">
+		<put-attribute name="title" value="All Customers Report" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Reports/CustomerReportPage.jsp" />
+	</definition>
+	
+	<!-- AllOrdersPage -->
+	<definition name="AllOrdersPage" extends="base.Layout">
+		<put-attribute name="title" value="ALl Orders" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Reports/AllOrderPage.jsp" />
+	</definition>
+	
+	<!-- MobileNoWiseReportPage -->
+	<definition name="MobileNoWiseReportPage" extends="base.Layout">
+		<put-attribute name="title" value="Mobile No Wise Report" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Reports/MobileNoWiseReportPage.jsp" />
+	</definition>
+	
+	<!-- dailyCollectionReportPage -->
+	<definition name="dailyCollectionReportPage" extends="base.Layout">
+		<put-attribute name="title" value="Daily Collection" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Reports/DailyCollectionReport.jsp" />
+	</definition>
+	
+	<!-- fromDateToDateReportPage -->
+	<definition name="fromDateToDateReportPage" extends="base.Layout">
+		<put-attribute name="title" value="From Date To Date" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Reports/FromDateToDateReportPage.jsp" />
+	</definition>
+	
+	<!-- dateRangeReportPage -->
+	<definition name="dateRangeReportPage" extends="base.Layout">
+		<put-attribute name="title" value="Date Range Report" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Reports/fromDateToDate.jsp" />
+	</definition>
+	
+	<!-- OrderIdWiseDetailsReportPage -->
+	<definition name="OrderIdWiseDetailsReportPage" extends="base.Layout">
+		<put-attribute name="title" value="OrderId Wise Report" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Reports/OrderIdWiseDetailsReportPage.jsp" />
+	</definition>
+
+	<!-- TodaysDeliveryPage -->
+	<definition name="TodaysDeliveryPage" extends="base.Layout">
+		<put-attribute name="title" value="Todays Deliverys" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Orders/TodaysDeliverysPage.jsp" />
+	</definition>
+	
+	<!-- TodaysOrdersPage -->
+	<definition name="TodaysOrdersPage" extends="base.Layout">
+		<put-attribute name="title" value="Todays Orders" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Orders/TodaysOrdersPage.jsp" />
+	</definition>
+	
+	<!-- TodaysCollectionPage -->
+	<definition name="TodaysCollectionPage" extends="base.Layout">
+		<put-attribute name="title" value="Todays Collections" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Orders/TodaysCollectionPage.jsp" />
+	</definition>
+	
+	<!-- getTodaysRevenuePage -->
+	<definition name="getTodaysRevenuePage" extends="base.Layout">
+		<put-attribute name="title" value="Todays Revenue" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Orders/TodaysRevenuePage.jsp" />
+	</definition>
+	
+	<!-- PaidReportPage -->
+	<definition name="PaidReportPage" extends="base.Layout">
+		<put-attribute name="title" value="Paid Report" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Orders/PaidOrdersPage.jsp" />
+	</definition>
+	
+	<!-- PendingReportPage -->
+	<definition name="PendingReportPage" extends="base.Layout">
+		<put-attribute name="title" value="Pending Report" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Orders/PendingOrdersPage.jsp" />
+	</definition>
+	
+	<!-- NotReadyOrdersAllPage -->
+	<definition name="NotReadyOrdersAllPage" extends="base.Layout">
+		<put-attribute name="title" value="NotReady Orders" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Orders/NotReadyOrders.jsp" />
+	</definition>
+	
+	<!-- ReadyOrdersAllPage -->
+	<definition name="ReadyOrdersAllPage" extends="base.Layout">
+		<put-attribute name="title" value="Ready Orders" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Orders/ReadyOrders.jsp" />
+	</definition>
+	
+	<!-- IncompleteOrdersAllPage -->
+	<definition name="IncompleteOrdersAllPage" extends="base.Layout">
+		<put-attribute name="title" value="Incomplete Orders" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Orders/IncompleteOrders.jsp" />
+	</definition>
+	
+	<!-- DeliveredOrdersAllPage -->
+	<definition name="DeliveredOrdersAllPage" extends="base.Layout">
+		<put-attribute name="title" value="Delivered Orders" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Orders/DeliveredOrders.jsp" />
+	</definition>
+	
+	<!-- greetingMessagePage -->
+	<definition name="greetingMessagePage" extends="base.Layout">
+		<put-attribute name="title" value="Promotion" />
+		<put-attribute name="body" value="/WEB-INF/main/PromotionMessages.jsp" />
+	</definition>
+	
+	
+	<!-- devloperMasterPage -->
+	<definition name="devloperMasterPage" extends="base.Layout">
+		<put-attribute name="title" value="Devloper Master" />
+		<put-attribute name="body" value="/WEB-INF/developer/developerMaster.jsp" />
+	</definition>
+</tiles-definitions>  

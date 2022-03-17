@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BookBarcodes" language="groovy" printOrder="Horizontal" pageWidth="107" pageHeight="842" columnWidth="87" leftMargin="10" rightMargin="10" topMargin="10" bottomMargin="10" uuid="59025026-5fc3-43b5-bf7a-9ee423bbf2b0">
+	<property name="ireport.zoom" value="4.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="215"/>
+	<parameter name="orderId" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ShopId" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select c.cName,c.cMobile,c.gender,
+o.clothType,o.invoiceNo,o.orderDate,o.deleveredDate,o.orderId,o.serviceType,
+od.dueDate,
+(select count(o.serviceType)
+FROM customerdetailmodel c,orderseparateentrymodel o,orderdetails od,servicetypemodel s
+where c.cId=o.cId and o.orderId=od.orderId and o.serviceType=s.serviceTypeName
+and s.serviceType='Outside' and o.orderId=$P{orderId}) as qty
+FROM customerdetailmodel c,orderseparateentrymodel o,orderdetails od,servicetypemodel s
+where c.cId=o.cId and o.orderId=od.orderId and o.serviceType=s.serviceTypeName
+and s.serviceType='Outside' and o.orderId=$P{orderId} and o.shopId=$P{ShopId}]]>
+	</queryString>
+	<field name="cName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cMobile" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="gender" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="clothType" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="invoiceNo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="orderDate" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="deleveredDate" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="orderId" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="serviceType" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dueDate" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="qty" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="147" splitType="Stretch">
+			<componentElement>
+				<reportElement x="-8" y="116" width="103" height="15" forecolor="#000000" uuid="aa035b1d-1c38-4fdf-b4dc-99a62e9dd8b0"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code128" drawText="false" checksumRequired="false" barHeight="0">
+					<jr:codeExpression><![CDATA[$F{orderId}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<textField>
+				<reportElement x="-8" y="130" width="104" height="11" uuid="74af8ae5-88c5-4232-8e4f-f545cc870a70"/>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{orderId}+" @ "+$F{cMobile}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-11" y="146" width="107" height="1" forecolor="#666666" uuid="dae83bea-2d53-41fd-86cb-5d3d0bffba0d"/>
+				<graphicElement>
+					<pen lineStyle="Dotted" lineColor="#666666"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="-9" y="43" width="104" height="24" uuid="ba64b832-9c4b-4456-aad2-2cddfc58d782"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PERCLEAN]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="-9" y="60" width="104" height="22" uuid="061bf3d5-9480-4d2a-971a-5010767ce668"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Serif" size="15" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{invoiceNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-9" y="79" width="104" height="11" uuid="aed31621-8879-4649-a8b5-2fd0717e2ef8"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Serif" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{orderDate}+"     "+$F{dueDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-9" y="91" width="104" height="23" uuid="6705b368-b681-4c01-acd6-436e30622a5d"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Serif" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gender}+" "+$F{cName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-9" y="39" width="104" height="22" uuid="837ce672-b54e-48f8-8706-dd51eb8e80f0"/>
+				<box rightPadding="10">
+					<pen lineColor="#000000"/>
+					<topPen lineColor="#000000"/>
+					<leftPen lineColor="#000000"/>
+					<bottomPen lineColor="#000000"/>
+					<rightPen lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}+"/"+$F{qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-9" y="102" width="104" height="31" uuid="778560e5-5516-4f6e-9c80-d85fe91bc723"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Serif" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{clothType}+"         "+$F{serviceType}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="orderRecipts" language="groovy" pageWidth="226" pageHeight="792" columnWidth="206" leftMargin="10" rightMargin="10" topMargin="10" bottomMargin="10" uuid="a4b85d46-7200-47b8-ab5b-11a32f08d96d">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="624"/>
+	<parameter name="orderId" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ShopNameId" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select com.clothType,com.serviceType,com.quantity,com.rate,com.amount,com.invoiceNo,com.orderId,com.orderDate,cdm.cName,cdm.cMobile,cdm.gender,cdm.cWallet,cdm.cAmount,
+od.totalAmount,od.totalQuantity,od.amountPaid,od.amountRemaining,od.dueDate
+from orderdetails od,customerordermodel com,customerdetailmodel cdm
+where com.orderId=od.orderId and com.cId=cdm.cId and od.orderId=$P{orderId} and od.shopId=$P{ShopNameId}]]>
+	</queryString>
+	<field name="clothType" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="serviceType" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="quantity" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="rate" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="amount" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="invoiceNo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="orderId" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="orderDate" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cMobile" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="gender" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cWallet" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cAmount" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="totalAmount" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="totalQuantity" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="amountPaid" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="amountRemaining" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dueDate" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="71" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-4" y="2" width="181" height="47" uuid="4241ec18-88ea-40be-b21a-1066e9b76ff2"/>
+				<graphicElement>
+					<pen lineWidth="0.75" lineStyle="Double" lineColor="#333333"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="-3" y="2" width="180" height="26" uuid="83ac8a56-a01b-46cc-af89-064d311f6545"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="SansSerif" size="12" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA["THE POONA CLUB LTD" ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-3" y="19" width="180" height="21" uuid="dc89b6e0-da7e-4343-93cd-46e2e82f21d9"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="SansSerif" size="11" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA["Perclean Laundry" ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="-1" y="52" width="176" height="16" uuid="398b1a95-2270-42e4-a9f6-c7f8bbebd87b"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Invoice No : "+$F{invoiceNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-3" y="36" width="180" height="11" uuid="00e20e6c-64a2-42ae-9a46-cbd40ce44679"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[www.perclean.in 	9503854185 / 9766792371]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-4" y="70" width="189" height="1" uuid="a944a6c0-a5ea-4d2b-9740-36fa608fd4d0"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#333333"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="34" splitType="Stretch">
+			<textField>
+				<reportElement x="100" y="3" width="77" height="20" uuid="9bfbc730-7ba3-40be-aecd-66286618f2fe"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cMobile}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="45" y="18" width="132" height="13" uuid="5d1ead19-7f49-4f4d-8142-07f7b84eac57"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Due Date : "+$F{dueDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-3" y="3" width="126" height="19" uuid="ba7f9d4d-fbf6-4791-8bb0-a9e12144a287"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gender}+" "+$F{cName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-3" y="18" width="121" height="13" uuid="0cdad981-f791-427a-9198-0c0b4c008c0b"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Order Date : "+$F{orderDate}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-4" y="33" width="189" height="1" uuid="591b9a70-b304-405b-98ca-52c26303c4e9"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#333333"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="141" y="2" width="34" height="19" uuid="15e593e7-7ffe-40c8-b4b4-1cf14a311d3d"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amt]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-5" y="2" width="15" height="20" uuid="4fc77202-ed9a-4c7a-b054-92008a09b2df"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sr.No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="72" y="2" width="43" height="20" uuid="c8b4b974-38d3-49a6-bb83-bbeaa4d64f3e"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qty]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="108" y="2" width="33" height="20" uuid="f4d13473-b318-4aa1-98ba-fc527f7b0b27"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="2" width="51" height="20" uuid="2758bd41-3964-4639-914c-2b4b1df45ae0"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cloth]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="51" y="2" width="58" height="20" uuid="8413f901-06a6-4c33-a68d-f97a72a5a0ad"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Service]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="14" splitType="Stretch">
+			<textField>
+				<reportElement x="11" y="-6" width="51" height="20" uuid="f4b63a7e-d8ed-4b68-b1d2-4db1d21868b1"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{clothType}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="108" y="-6" width="33" height="20" uuid="1e27ae10-2af3-4723-a127-fc14c30cd66a"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="141" y="-6" width="34" height="20" uuid="86f8022c-1a70-43f9-9ddb-4d7cfcb35d3e"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="-5" y="-6" width="15" height="20" uuid="c46a01a5-7d2d-465d-97f8-82ba5a3f0720"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="51" y="-6" width="58" height="20" uuid="824d1153-3aa3-424f-b1b8-f4447a2a24af"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{serviceType}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="-6" width="43" height="20" uuid="e646cceb-a7bf-403d-ad3d-11329c43bb8b"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="474" splitType="Stretch">
+			<textField>
+				<reportElement x="141" y="19" width="35" height="14" uuid="b0f402f1-14e8-43ca-933a-e4b017a4e883"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{amountPaid}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="93" y="34" width="53" height="13" uuid="612a24b0-d7f3-4611-ab33-696fde5ec739"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amt. Rem. :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="141" y="34" width="35" height="13" uuid="b2fed1ec-cfed-40c5-8a74-93aff6e94751"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{amountRemaining}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="141" y="4" width="35" height="14" uuid="e06209d3-7b4d-4598-9289-04f5ca863abf"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalAmount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="93" y="19" width="53" height="14" uuid="d8584874-4d71-4a7e-9b97-e2625f54615e"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amt. Paid :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-3" y="4" width="63" height="14" uuid="d309a203-0afa-4000-a912-24f09345307d"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total  Qty :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="45" y="4" width="32" height="14" uuid="6082efd0-d458-46ac-b517-5a3d08a47257"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalQuantity}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="93" y="4" width="53" height="14" uuid="b8f634c5-fd2c-49a6-804e-7b8a6c921940"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tot  Amt.:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-5" y="-1" width="194" height="1" uuid="fa228d7d-ebed-43e9-b232-5efdd2385261"/>
+				<graphicElement>
+					<pen lineStyle="Solid" lineColor="#333333"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="-3" y="19" width="112" height="14" uuid="da4213b9-5af9-4ca9-8676-c798f3e073f6"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Wallet : "+$F{cWallet}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-3" y="87" width="180" height="16" forecolor="#000000" uuid="93220894-11b2-4694-8a1a-7e42295e747c"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="9" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Store Time : 10:00 AM - 08:00 PM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="113" width="141" height="15" uuid="aa5b99d4-f9ce-4cc3-9d0c-90346a190f90"/>
+				<textElement>
+					<font size="9" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Terms and Conditions :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="127" width="162" height="324" uuid="aa4fdf30-ac35-43b0-a4a6-e997accc8c53"/>
+				<textElement textAlignment="Justified">
+					<font fontName="SansSerif" size="7" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[THIS IS NOT A BILL BUT RECEIT CUM CHALLAN.
+While every endeavour is made to remove stains and spots from the garments but no gauantee is given for the same.
+No responsibility can be accepted for the shrinkage or for damage to any article due to defective manufacture or quality of texture.
+No responsibility is taken for any damage or tear to garments while in the process of cleaning and removing stains and spots.
+Colour run no gaurantee.
+The company does not hold itself responsible for delay locs or damages to any articles arising from unforeseen circumstances or causex beyonds it control.
+The article accepeted at the Counter cannot be checked throughly so the company reserves the right of refusing to do the job even after it has been accepted at the Counter. The Customers will be informed as early as possible about it.
+The company is not responsible for the articles not collected withen 2 months, from the receipt of the same.
+In the event of cloths lost, damaged, interchanged or misplaced the firm will be liable to pay maximum ten times of Cleaning Charges Provided Original purchases bill is produced of the new Garments, this is irrespective of Country of origin brand, texture quality and cost of garment.
+The firm shall not be responsible for the breakege of Zips, Buttons and Buckles etc. Discolouration is not firms responsibility.
+In the case of the goods being lost or damaged by fire the clain will be paid proportionate to the Insurance clain received as all the garments are insured under general policy.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="127" width="11" height="324" uuid="a1cf2c4b-8c85-44d3-8fd8-5bb84bd866a9"/>
+				<textElement textAlignment="Right">
+					<font size="7" isBold="false" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[1.
+2.
+
+
+3.
+
+
+4.
+
+
+5.
+6.
+
+
+
+7.
+
+
+
+
+8.
+
+
+9.
+
+
+
+
+
+10.
+
+
+11.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="-3" y="34" width="112" height="14" uuid="691c996d-7feb-4c8c-b191-f355a84372fe"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Balance : "+$F{cAmount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="93" y="447" width="80" height="14" uuid="c84d8886-3a89-4846-9c2f-6551f6cab326"/>
+				<textElement textAlignment="Right">
+					<font size="9" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Signature]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="11" y="52" width="174" height="29" uuid="0544d899-8ab5-4356-9cc5-5cc534ef3186"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Code39" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA[$F{orderId}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<line>
+				<reportElement x="-4" y="47" width="194" height="1" uuid="cb8581e4-62f2-4916-9592-2dc7425a63a2"/>
+				<graphicElement>
+					<pen lineStyle="Solid" lineColor="#333333"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="-3" y="100" width="179" height="16" forecolor="#000000" uuid="7123e455-d9b0-4481-bfe3-21f07b9a88a5"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="9" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Sunday Closed]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-5" y="85" width="194" height="1" uuid="c97f7197-eb0a-4c7b-be14-35c8a2066f6e"/>
+				<graphicElement>
+					<pen lineStyle="Solid" lineColor="#333333"/>
+				</graphicElement>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

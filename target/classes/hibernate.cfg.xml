@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+
+		<!-- Admin Model Class Mapping -->
+		<mapping class="com.model.master.NumberData" />
+		<mapping class="com.model.master.ClothTypeModel" />
+		<mapping class="com.model.master.ServiceTypeModel" />
+		<mapping class="com.model.master.RateMasterModel" />
+		<mapping class="com.model.master.PreferanceModel" />
+		<mapping class="com.model.master.ShopDetailsModel" />
+		<mapping class="com.model.master.OwnerDetailsModel" />
+		
+		<mapping class="com.model.CustomerDetailModel" />
+		<mapping class="com.model.CustomerOrderModel" />
+		<mapping class="com.model.CustomerOrderModel_2" />
+		<mapping class="com.model.ReturnOrderEntryModel" />
+		<mapping class="com.model.ReturnOrderDetails" />
+		<mapping class="com.model.OrderDetails" />
+		<mapping class="com.model.OrderSeparateEntryModel" />
+		<mapping class="com.model.OrderPaymentModel"/>
+		
+	</session-factory>
+</hibernate-configuration>
